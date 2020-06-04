@@ -1,0 +1,98 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <!-- <mat-panel-title>
+                Add Employee
+            </mat-panel-title> -->
+            <mat-panel-description>
+                Add a new Employee
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="one">
+          <mat-card class="shipping-card mat-elevation-z24"  class="empForm">
+              <mat-card-header>
+                  <mat-card-title>Admin Login</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+      <form [formGroup]="empForm"  novalidate (ngSubmit)="onSubmit()">
+                  <div class="row">
+                      <div class="col">
+
+                        <h4>Add a new employee</h4>
+                        <br>
+                        <mat-divider>
+                          <b>  <p>Employee id</p> </b>
+                        </mat-divider>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Employee name" formControlName="name">
+                            <mat-error *ngIf="empForm.controls['name'].hasError('required')">
+                              Employee  name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field>
+                            <input matInput placeholder="Employee email" formControlName="email">
+                            <mat-error *ngIf="empForm.controls['email'].hasError('required')">
+                              Employee email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field>
+                            <input matInput placeholder="Employee password" type="number" formControlName="passwrd">
+                            <mat-error *ngIf="empForm.controls['passwrd'].hasError('required')">
+                              Employee password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+
+                        <br>
+
+
+                      </div>
+                  </div>
+
+                  </form>
+              </mat-card-content>
+              <mat-card-actions>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" [disabled]="!empForm.valid">Login</button>
+              </mat-card-actions>
+          </mat-card>
+
+          </div>
+  </mat-expansion-panel>
+
+</mat-accordion>
+
+<table mat-table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="photo">
+      <th mat-header-cell *matHeaderCellDef>picture</th>
+      <td mat-cell *matCellDef="let element"> {{element.photo}} </td>
+
+  </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef>contact number</th>
+        <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let row">
+            <button mat-icon-button  matTooltip="Update row" matTooltipPosition="before" matTooltipClass="example-tooltip" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button color="warn"  matTooltip="Delete row" matTooltipPosition="after" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>delete_outline</mat-icon></button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

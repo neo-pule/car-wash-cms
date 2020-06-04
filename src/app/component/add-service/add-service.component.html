@@ -1,0 +1,99 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <!-- <mat-panel-title>
+                Add Electrical Service
+            </mat-panel-title> -->
+            <mat-panel-description style="text-align:center">
+                Add a new Electrical service
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="one">
+          <mat-card class="shipping-card mat-elevation-z24"  class="serviceForm">
+              <mat-card-header>
+                  <mat-card-title>Admin Login</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+      <form [formGroup]="serviceForm"  novalidate (ngSubmit)="onSubmit()">
+                  <div class="row">
+                      <div class="col">
+                        <div class="button">
+                               <img src="../../assets/gallery-1490947843-img-4163.PNG" alt="avatar" (click)="file.click()" height="140" width="95">
+                               <input #file type="file" style="display: none;" (change)="uploadFile(file.files)" accept='image/*' />
+ <!-- <input id="file-input" class="input" type="file" (change)="uploadFile($event)" accept="image/x-png,image/gif,image/jpeg" /> -->
+                           </div>
+
+                        <h4>Add a new service</h4>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Service name" formControlName="name">
+                            <mat-error *ngIf="serviceForm.controls['name'].hasError('required')">
+                              service  name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field>
+                            <input matInput placeholder="Service Description" formControlName="desc">
+                            <mat-error *ngIf="serviceForm.controls['desc'].hasError('required')">
+                              service  desc is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field>
+                            <input matInput placeholder="Service Cost" type="number" formControlName="cost">
+                            <mat-error *ngIf="serviceForm.controls['cost'].hasError('required')">
+                              service  cost is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+
+
+                      </div>
+                  </div>
+
+                  </form>
+              </mat-card-content>
+              <mat-card-actions>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" [disabled]="!serviceForm.valid">Login</button>
+              </mat-card-actions>
+          </mat-card>
+
+          </div>
+
+
+
+    </mat-expansion-panel>,
+
+</mat-accordion>
+
+<table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Service</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+
+    </ng-container>
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+    <ng-container matColumnDef="cost">
+        <th mat-header-cell *matHeaderCellDef>cost</th>
+        <td mat-cell *matCellDef="let element"> {{element.cost}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+
+        <!-- <mat-header-cell *matHeaderCellDef></mat-header-cell> -->
+        <td mat-cell *matCellDef="let row">
+            <button mat-icon-button  matTooltip="Update row" matTooltipPosition="before" matTooltipClass="example-tooltip" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button color="warn"  matTooltip="Delete row" matTooltipPosition="after" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>delete_outline</mat-icon></button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+
+</table>

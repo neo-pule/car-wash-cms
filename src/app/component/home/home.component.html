@@ -1,0 +1,15 @@
+<mat-sidenav-container class="example-container">
+
+    <mat-sidenav  mode="side"class="list" opened>
+
+<app-sidenav></app-sidenav>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="dash">
+        <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
+
+
+        <!-- <app-output-graph></app-output-graph> -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,43 @@
+
+.one {
+    background-color:blue;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 20vh;
+    color: white;
+
+}
+.profile{
+    position: relative;
+    top: 0px;
+}
+.example-container {
+
+    display : flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+.list {
+    width: 15%;
+    position: absolute;
+    /* overflow-x: hidden;1 */
+    overflow-y: hidden !important;
+      background-color:green;
+
+
+    /* background: linear-gradient(rgba(rgb(240, 23, 23), .75), rgba(rgba(238, 12, 12, 0.692), .85)), url("/assets/bg.jpg") no-repeat; */
+}
+
+.dash{
+
+  position:relative;
+  /* background-color: lightblue; */
+/* right:10px; */
+  /* max-width: 90%; */
+}

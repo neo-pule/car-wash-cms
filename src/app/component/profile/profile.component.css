@@ -1,0 +1,22 @@
+.loginForm{
+  background-color: lightgreen;
+    top:15vh;
+
+  position:relative;
+  left :50vh;
+width: 45vh;
+height: 55vh;
+}
+.card1{
+    background-color: lightblue;
+      position:relative;
+
+      height: 99vh;
+      width: 160vh;
+}
+.content{
+  position:relative;
+  /* left :22vh; */
+  text-align: center;
+  top : 15px;
+}

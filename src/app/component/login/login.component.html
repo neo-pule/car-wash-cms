@@ -1,0 +1,87 @@
+
+
+<div *ngIf="!flag; else pass" class="card1">
+    <!-- <h1 class="admin">Admin</h1> -->
+
+        <mat-card class="shipping-card mat-elevation-z24"  class="loginForm">
+            <mat-card-header>
+                <mat-card-title>Admin Login</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+    <form [formGroup]="loginForm"  novalidate (ngSubmit)="signIn()">
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Email" formControlName="email">
+                            <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+                                Email is <strong>required</strong>
+                            </mat-error>
+
+                            <mat-error *ngIf="loginForm.get('email').hasError('pattern') && loginForm.get('email').touched">
+                                Email address is <strong>  invalid</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Password" formControlName="password">
+                            <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                                Password is <strong>required</strong>
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
+                                Password <strong> Minimum 6 characters</strong>
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.get('password').hasError('maxlength') && loginForm.get('password').touched">
+                                Password <strong>Maximum 12 characters</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" [disabled]="!loginForm.valid">LOGIN</button>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="passFrm()">Forgot Password</button>
+            </mat-card-actions>
+        </mat-card>
+
+</div>
+<ng-template #pass class="card1">
+<div class="card1">
+  <div class="msg">
+
+      <p>Enter your email below to recieve your password</p>
+  </div>
+      <mat-card class="shipping-card mat-elevation-z24" class="passForm">
+          <mat-card-header>
+            <h1>Forgot Password?</h1>
+
+          </mat-card-header>
+          <mat-card-content>
+  <form [formGroup]="passForm"  novalidate (ngSubmit)="resetPassword()">
+              <div class="row">
+                  <div class="col">
+                      <mat-form-field class="full-width">
+                          <input matInput placeholder="Email" formControlName="email">
+                          <mat-error *ngIf="passForm.controls['email'].hasError('required')">
+                              Email is <strong>required</strong>
+                          </mat-error>
+
+                          <mat-error *ngIf="passForm.get('email').hasError('pattern') && passForm.get('email').touched">
+                              Email address is <strong>  invalid</strong>
+                          </mat-error>
+                      </mat-form-field>
+                  </div>
+              </div>
+              </form>
+            </mat-card-content>
+            <mat-card-actions>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" [disabled]="!passForm.valid">SEND PASSWORD</button>
+                    <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="loginFrm()">login</button>
+            </mat-card-actions>
+            </mat-card>
+</div>
+</ng-template>

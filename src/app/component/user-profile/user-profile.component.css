@@ -1,0 +1,25 @@
+.loginForm{
+  background-color: lightgreen;
+    top:15vh;
+
+  position:relative;
+  left :50vh;
+width: 50vh;
+}
+
+.card1{
+    background-color: lightblue;
+      position:relative;
+
+      height: 98vh;
+      width: 200vh;
+}
+.content{
+  position:relative;
+  /* left :22vh; */
+  text-align: center;
+}
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
