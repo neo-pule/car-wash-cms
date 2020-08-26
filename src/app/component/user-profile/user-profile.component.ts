@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CarWashService } from '../../services/car-wash.service';
 // ListServiceDataSource
 import { StoreObjService } from 'src/app/services/store-obj.service';
 
@@ -11,11 +11,29 @@ import { StoreObjService } from 'src/app/services/store-obj.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private arrObj :StoreObjService) { }
+obj : any;
 
+data:any;
+	user : {
+	name :"",
+	email : "",
+	phone :"",
+	id : "",
+	//address : "",
+	photoUrl : ""
+	}
+  constructor(private arrObj :StoreObjService,private users :CarWashService) { }
+
+  	deleteUser() {
+		this.users.deleteUser(this.obj)
+		
+	}
+	
   ngOnInit(): void {
-    console.log(this.arrObj.getUserObj());
-        // console.log(this.arrObj);
+	  this.obj = this.arrObj.getUserObj();
+	  this.user = this.obj;
+    console.log(this.obj);
+         console.log(this.user);
   }
 
 }

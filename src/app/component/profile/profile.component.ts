@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CarWashService } from '../../services/car-wash.service';
 import { AuthGuardService } from '../../services/auth-guard.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ProfileUpdateComponent } from '../profile-update/profile-update.component';
 import { AdminPasswUpdateComponent } from '../admin-passw-update/admin-passw-update.component';
 // import { ProfileUpdateComponent } from './component/profile-update/profil t8e-update.component';
 export interface dialog {
-  age: number;
-  name: string;
+  age: 444;
+  name: 'neo';
 }
 
 @Component({
@@ -26,31 +26,40 @@ export class ProfileComponent implements OnInit {
 
   });
   mail;
-  constructor(private fb: FormBuilder, private car : CarWashService, private auth : AuthGuardService,private dialog : MatDialog) { }
+  name = 'Neo';
+  age ;
+  temp : any;
+  temp1 : any;
+admin : {
+	  name : "";
+	  email : "";
+	  photo : "";
+	  phone : 0;
+	  id : "";
+	  data : "";
+	  time : "";
+	   address : "";
+  };
+  constructor(private fb: FormBuilder, private car : CarWashService, private auth : AuthGuardService,public dialog : MatDialog) { }
 
 openP(){
-  const dialogRef = this.dialog.open(AdminPasswUpdateComponent,{
+  this.dialog.open(AdminPasswUpdateComponent,{
   // width : '300px',
-  data :{name:this.name,age:this.age}});
+  data :{name:'Neo',age:444}
+  
+  });
 
-  dialogRef.afterClosed().subscribe(res =>{
-    console.log("dialog was closed/n")
-    console.log(res)
-  })
 }
 
 openD(){
-    const dialogRef = this.dialog.open(ProfileUpdateComponent,{
+   this.dialog.open(ProfileUpdateComponent,{
     // width : '300px',
-    data :{name:this.name,age:this.age}});
+    data :{name:this.temp.name,email:this.temp.email,photo : this.temp.photo, phone : this.temp.phone,date : this.temp.data,id : this.temp.id}});
 
-    dialogRef.afterClosed().subscribe(res =>{
-      console.log("dialog was closed/n")
-      console.log(res)
-    })
+   
 }
 updateProfile(){
-this.car.updateAdmin();
+//this.auth.updateAdmin();
 }
 updatePassword(){
   // password
@@ -58,10 +67,18 @@ updatePassword(){
 }
 updateMail(){
   // email
-  this.car.updateAdminMail(mail);
+  this.auth.updateAdminMail(this.mail);
 }
   ngOnInit(): void {
-    this.car.adminProfile();
+	 // console.log( this.auth.admin())
+	  this.temp = this.auth.admin();
+	  this.admin = this.temp;
+	  console.log(this.admin)
+	  this.temp1 = this.auth.adminProfile();
+      this.temp1.subscribe((admin) => {
+		  console.log(admin)
+	  });
+
   }
   onSubmit(){
     console.log("hello world");

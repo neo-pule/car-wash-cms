@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
-   firebaseConfig : {
-      apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
-      authDomain: "eletrical-engineer-cms.firebaseapp.com",
-      databaseURL: "https://eletrical-engineer-cms.firebaseio.com",
-      projectId: "eletrical-engineer-cms",
-      storageBucket: "eletrical-engineer-cms.appspot.com",
-      messagingSenderId: "931661674739",
-      appId: "1:931661674739:web:65e43541f406b1822c1f86",
-      measurementId: "G-99GQV7XQHK"
-    }
+  firebase:{
+    apiKey: "AIzaSyCWsWJQYQvgcASCpD5tgEq-WP0V6xwsfNM",
+   authDomain: "car-wash-73c08.firebaseapp.com",
+   databaseURL: "https://car-wash-73c08.firebaseio.com",
+   projectId: "car-wash-73c08",
+   storageBucket: "car-wash-73c08.appspot.com",
+   messagingSenderId: "732309962148",
+   appId: "1:732309962148:web:6086ff37f15aaafcd0d531",
+   measurementId: "G-FYTS59X2T7"
+   }
 };
 
 /*

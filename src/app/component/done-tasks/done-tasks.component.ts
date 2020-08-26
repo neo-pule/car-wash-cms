@@ -21,6 +21,10 @@ dataSource : any;
   next(){
     this.route.navigate(['home/done-detailed-request']);
   }
+  viewTask(){
+	console.log("view task")
+	this.route.navigate(['home/active-detailed-request']);
+}
   ngOnInit(): void {
   }
 

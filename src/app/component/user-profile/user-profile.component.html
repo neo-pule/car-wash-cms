@@ -5,31 +5,32 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image1"></div>
   <img mat-card-sm-image src="../../assets/gallery-1490947843-img-4163.PNG" style="position:relative;height:30%;max-width:45%;">
+  <p>{{user.photoUrl}}</p>
 </mat-card-header>
 <mat-card-content class="content">
 <mat-divider>
 
   <h3>
-    emp id  : ...
+    user id  : {{user.id}}
   </h3>
 </mat-divider>
   <mat-divider></mat-divider>
-      <p>Bob Neo</p>
+      <p>{{user.name}}</p>
 
      <mat-divider></mat-divider>
-    <p>Bob@Neo</p>
+    <p>{{user.email}}</p>
 
     <mat-divider></mat-divider>
-    <p>01123654789</p>
+    <p>{{user.phone}}</p>
 
    <mat-divider></mat-divider>
-    <p>address</p>
+    <p>addre</p>
 
    <mat-divider></mat-divider>
 
 </mat-card-content>
   <mat-card-actions>
-    <button mat-button>DELETE</button>
+    <button mat-button (click)="deleteUser()">Delete User</button>
   </mat-card-actions>
 </mat-card>
 </div>

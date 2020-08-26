@@ -1,12 +1,62 @@
-<!-- <mat-tab-group dynamicHeight id="tab" color='light'>
+<div class="one">
+<h2 mat-dialog-title>Update Service</h2>
+  <div class="btn">
+                               <img src="{{service.photo}}"  (click)="file.click()" height="160" width="200">
+                               <input #file type="file" style="display: none;" (change)="uploadFile($event)" accept='image/*' />
+ <!--  (ngSubmit)="onSubmit()"<input id="file-input" class="input" type="file" (change)="uploadFile($event)" accept="image/x-png,image/gif,image/jpeg" /> -->
+  </div> 
+<mat-dialog-content class="updateAdminForm">
 
 
-    <mat-tab label="Add services">
-        <app-add-service></app-add-service>
-    </mat-tab>
-    <mat-tab label="Add worker">
-        <app-add-worker></app-add-worker>
-    </mat-tab>
+          <div class="row">
+		  
+              <div class="col">
+			  
 
-</mat-tab-group> -->
-<p>hi .. Bob!</p>
+                <!-- <h4>Update Admin Profile</h4> -->
+                <br>
+                <mat-divider>
+                  <b>  <p>Admin id</p> </b>
+                </mat-divider>
+
+                <mat-form-field>
+				<mat-label>Service Name</mat-label>
+                    <input matInput  [(ngModel)]="service.name"  value="{{service.name}}">
+				
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+				<mat-label>Service Description</mat-label>
+                    <input matInput [(ngModel)]="service.desc"   value="{{service.desc}}">
+					
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+				<mat-label>Service Cost</mat-label>
+                    <input matInput  type="number" [(ngModel)]="service.cost"   value="{{service.cost}}">
+					
+                </mat-form-field>
+                <br>
+				<!--<mat-form-field>
+                    <input matInput placeholder="Admin address"  formControlName="address" value="{{admin.address}}">
+
+                </mat-form-field>
+                <br> -->
+
+
+              </div>
+			  
+          </div>
+
+     
+    
+  </mat-dialog-content>
+  
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button class="bt" type="submit"  class="md-button" [disabled]="!updateService.valid">Login</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. [mat-dialog-close]="true" -->
+  <button mat-button (click)="update()">OK</button>
+</mat-dialog-actions>
+
+ </div>

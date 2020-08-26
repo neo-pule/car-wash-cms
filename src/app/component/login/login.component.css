@@ -1,26 +1,17 @@
-.bg{
-    background-color: black;
-}
-.card1{
-    background-color: lightblue;
-      position:relative;
 
-      height: 98vh;
-      width: 200vh;
-}
 .passForm{
-  background-color: lightgray;
-  top:15vh;
+  background-color: #ffffff;
 
-position:relative;
-left :50vh;
+right:80vh;
+position:absolute;
+
 width: 50vh;
 }
 .loginForm{
-  background-color: lightgreen;
-    top:15vh;
-
-  position:relative;
-  left :50vh;
+  background-color: #ffffff ;
+    
+right:80vh;
+  position:absolute;
+  
 width: 50vh;
 }

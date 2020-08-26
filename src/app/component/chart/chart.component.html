@@ -1,0 +1,52 @@
+<!-- <p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My Car Wash Daskboard</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon (click)="profile()">perm_identity</mat-icon>
+    </button>
+  </mat-toolbar>
+</p> -->
+<mat-grid-list cols="2" rowHeight="50vh">
+
+<mat-grid-tile style="background-color:grey;postion: absolute;height:50vh;width:100vh;">
+
+
+	 <app-line-chart style="position: relative;width :100vh;height:50vh;"></app-line-chart>  
+	
+</mat-grid-tile>
+
+<mat-grid-tile style="background-color:blue;height:50vh;width:100vh;">
+
+	 <app-bar-chart style="width :100vh;height:50vh;"></app-bar-chart>  
+
+</mat-grid-tile>
+
+<mat-grid-tile style="background-color:red;postion: absolute;height:50vh;width:100vh;">
+                                                         
+  <app-pie-chart style="position: relative;width :100vh;height:50vh;"></app-pie-chart>
+	
+	</mat-grid-tile>
+
+
+<mat-grid-tile style="background-color:orange;postion: absolute;height:50vh;width:100vh;"> 
+<app-colum-chart style="position: relative;width :100vh;height:50vh;"></app-colum-chart> 
+</mat-grid-tile>
+<!-- <mat-card  style="background-color:orange;postion: relative;width:55vh;height:45vh;left:65vh;top:0">    
+		<mat-card style="background-color:grey;postion: relative;width:55vh;height:45vh;left:65vh;top :0vh;">
+		<mat-card  style="background-color:red;postion: absolute;width:55vh;height:45vh;right:0;">
+			<mat-card style="background-color:blue;postion: relative;width:55vh;height:45vh;right:0;top :0vh;">
+		--
+     
+	
+</mat-grid-tile>	  -->
+	
+	
+
+</mat-grid-list>

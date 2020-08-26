@@ -1,0 +1,52 @@
+<mat-grid-list cols="2" rowHeight="100vh">
+
+<mat-grid-tile style="background-color:lightgrey;postion:absolute;height:100vh;width:100vh;">
+
+
+	    <mat-card class="shipping-card mat-elevation-z24"  class="serviceForm">
+              <mat-card-header>
+                  <mat-card-title>Add a new Administrator</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+      <form [formGroup]="adminForm"  novalidate>
+                  <div class="row">
+                      <div class="col">
+
+                        <h4>Admin Email</h4>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Email" formControlName="mail">
+                            <mat-error *ngIf="adminForm.controls['mail'].hasError('required')">
+                              Email is <strong>required</strong>
+                            </mat-error>
+							<mat-error *ngIf="adminForm.get('mail').hasError('pattern') && adminForm.get('mail').touched">
+                                Email address is <strong>  invalid</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>`
+						</div>
+						</div>
+						
+	</form>
+	 </mat-card-content>
+                       <mat-card-actions>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="Admin()" [disabled]="!adminForm.valid">Add Admin</button>
+                  
+            </mat-card-actions>
+			</mat-card>
+		
+</mat-grid-tile>
+
+<mat-grid-tile style="background-color:lightblue;height:100vh;width:100vh;">
+	 				<mat-list>
+  <h3 mat-subheader>Admins</h3>
+   <mat-list-item>
+      <mat-icon mat-list-icon>account_box</mat-icon>
+      <h4 mat-line>admin</h4>
+      <p mat-line class="demo-2"> admin john maake </p>
+     
+   </mat-list-item>
+</mat-list>
+
+</mat-grid-tile>
+</mat-grid-list>

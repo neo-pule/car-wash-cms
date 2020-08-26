@@ -1,46 +1,54 @@
 <div class="one">
-  <mat-card class="shipping-card mat-elevation-z24"  class="updateAdminForm">
-      <mat-card-header>
-          <mat-card-title>Update Admin Profile</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-<form [formGroup]="adminProfileForm"  novalidate (ngSubmit)="onSubmit()">
+<h2 mat-dialog-title>Update Service</h2>
+  <div class="btn">
+                               <img src="{{admin.photo}}" alt="avatar" height="160" (click)="file.click()" width="200">
+                               <input #file type="file" style="display: none;" (change)="uploadFile($event)" accept='image/*' />
+ <!-- <img src="{{admin.photo}}"> (ngSubmit)="onSubmit()"<input id="file-input" class="input" type="file" (change)="uploadFile($event)" accept="image/x-png,image/gif,image/jpeg" /> -->
+  </div> 
+<mat-dialog-content class="updateAdminForm">
+
           <div class="row">
               <div class="col">
 
                 <!-- <h4>Update Admin Profile</h4> -->
                 <br>
                 <mat-divider>
-                  <b>  <p>Employee id</p> </b>
+                  <b>  <p>Admin id</p> </b>
                 </mat-divider>
 
                 <mat-form-field>
-                    <input matInput placeholder="Admin name" formControlName="name">
+                    <input matInput placeholder="Admin name" ([ngModel])="admin.name"  value="{{admin.name}}">
 
                 </mat-form-field>
                 <br>
                 <mat-form-field>
-                    <input matInput placeholder="Admin email" formControlName="email">
+                    <input matInput placeholder="Admin email" [(ngModel)]="admin.email"  value="{{admin.email}}">
 
                 </mat-form-field>
                 <br>
                 <mat-form-field>
-                    <input matInput placeholder="Admin number" type="number" formControlName="phone">
+                    <input matInput placeholder="Admin number" [(ngModel)]="admin.phone"  type="number" value="{{admin.phone}}">
 
                 </mat-form-field>
                 <br>
+				<mat-form-field>
+                    <input matInput placeholder="Admin address"   [(ngModel)]="admin.address"  value="{{admin.address}}">
 
+                </mat-form-field>
                 <br>
 
 
               </div>
           </div>
 
-          </form>
-      </mat-card-content>
-      <mat-card-actions>
-          <button mat-raised-button class="bt" type="submit"  class="md-button" [disabled]="!adminProfileForm.valid">Login</button>
-      </mat-card-actions>
-  </mat-card>
+       
+    
+  </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button class="bt" type="submit" (click)="run()"  class="md-button" >OK</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. [mat-dialog-close]="true" ->
+  <button mat-button (click)="run()">OK</button> -->
+</mat-dialog-actions>
 
   </div>

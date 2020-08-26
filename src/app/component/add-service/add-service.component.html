@@ -1,11 +1,8 @@
 <mat-accordion>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
-            <!-- <mat-panel-title>
-                Add Electrical Service
-            </mat-panel-title> -->
             <mat-panel-description style="text-align:center">
-                Add a new Electrical service
+                Add a new Car Wash Service
             </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="one">
@@ -14,13 +11,13 @@
                   <mat-card-title>Admin Login</mat-card-title>
               </mat-card-header>
               <mat-card-content>
-      <form [formGroup]="serviceForm"  novalidate (ngSubmit)="onSubmit()">
+      <form [formGroup]="serviceForm"  novalidate>
                   <div class="row">
                       <div class="col">
                         <div class="button">
-                               <img src="../../assets/gallery-1490947843-img-4163.PNG" alt="avatar" (click)="file.click()" height="140" width="95">
-                               <input #file type="file" style="display: none;" (change)="uploadFile(file.files)" accept='image/*' />
- <!-- <input id="file-input" class="input" type="file" (change)="uploadFile($event)" accept="image/x-png,image/gif,image/jpeg" /> -->
+                               <img src="../../assets/download (19).jpg" alt="avatar" (click)="file.click()" height="160" width="200">
+                               <input #file type="file" style="display: none;" (change)="uploadFile($event)" accept='image/*' />
+ <!--  (ngSubmit)="onSubmit()"<input id="file-input" class="input" type="file" (change)="uploadFile($event)" accept="image/x-png,image/gif,image/jpeg" /> -->
                            </div>
 
                         <h4>Add a new service</h4>
@@ -46,15 +43,13 @@
                             </mat-error>
                         </mat-form-field>
                         <br>
-
-
                       </div>
                   </div>
 
                   </form>
               </mat-card-content>
               <mat-card-actions>
-                  <button mat-raised-button class="bt" type="submit"  class="md-button" [disabled]="!serviceForm.valid">Login</button>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="next()" [disabled]="!serviceForm.valid">Add Service</button>
               </mat-card-actions>
           </mat-card>
 
@@ -66,16 +61,16 @@
 
 </mat-accordion>
 
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="listService">
 
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Service</th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
 
     </ng-container>
-    <ng-container matColumnDef="description">
+    <ng-container matColumnDef="desc">
         <th mat-header-cell *matHeaderCellDef>description</th>
-        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
     </ng-container>
     <ng-container matColumnDef="cost">
         <th mat-header-cell *matHeaderCellDef>cost</th>
@@ -86,13 +81,14 @@
 
         <!-- <mat-header-cell *matHeaderCellDef></mat-header-cell> -->
         <td mat-cell *matCellDef="let row">
-            <button mat-icon-button  matTooltip="Update row" matTooltipPosition="before" matTooltipClass="example-tooltip" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>launch</mat-icon></button>
-            <button mat-icon-button color="warn"  matTooltip="Delete row" matTooltipPosition="after" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>delete_outline</mat-icon></button>
+          <!-- <button mat-icon-button  matTooltip="Update row" matTooltipPosition="before"  matTooltipClass="example-tooltip" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>launch</mat-icon></button> -->
+            <button mat-icon-button  matTooltip="Update row" (click)="update(row)" matTooltipPosition="before"  matTooltipClass="example-tooltip" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>launch</mat-icon></button> 
+            <button mat-icon-button color="warn"  matTooltip="Delete row" (click)="deleteService(row)" matTooltipPosition="after" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button"><mat-icon>delete_outline</mat-icon></button>
         </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
 
 
 

@@ -1,0 +1,21 @@
+
+  <mat-toolbar style="background-color:black">
+  <mat-toolbar-row>
+    <button mat-icon-button class="example-icon" (click)="toggleSideBar()" aria-label="Example icon-button with menu icon"  style="color:white;">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span style="position:absolute;right:800vh;color:white;">My Car Wash Daskboard</span>
+	<div class="one">
+	
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="color:white;" >
+      <mat-icon>home</mat-icon>
+    </button>
+	
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon [routerLink]="['/home/admin-profile']" slot="end">perm_identity</mat-icon>
+    </button>
+	
+	</div>
+	 </mat-toolbar-row>
+  </mat-toolbar>

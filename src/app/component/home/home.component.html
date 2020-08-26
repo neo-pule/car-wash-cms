@@ -1,15 +1,11 @@
-<mat-sidenav-container class="example-container">
+<app-header (click)="drawer.toggle()" ></app-header>
 
-    <mat-sidenav  mode="side"class="list" opened>
+<mat-drawer-container class="example-container" autosize style="position:relative;height:90vh;bottom:0px;">
 
-<app-sidenav></app-sidenav>
-    </mat-sidenav>
+  <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="toggle" style="width : 200px; height: 80vh;position: absolute;">
+  <app-sidenav></app-sidenav>
+  
+  </mat-drawer>
 
-    <mat-sidenav-content class="dash">
-        <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
-
-
-        <!-- <app-output-graph></app-output-graph> -->
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+    <router-outlet></router-outlet>
+</mat-drawer-container>

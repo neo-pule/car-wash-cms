@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     password: [null, Validators.compose([ Validators.minLength(6), Validators.maxLength(12), Validators.required])],
 
   });
+   hide = true;
   flag : boolean = false;
   constructor(private fb: FormBuilder,private auth :AuthGuardService,private route :Router,) { }
   login(){
@@ -32,8 +33,22 @@ export class LoginComponent implements OnInit {
   passFrm(){
     this.flag = true;
   }
+  run(){
+    this.auth.admin();
+  }
+
+  onSubmit(){
+    // this.flag = true;
+       console.log(this.loginForm.value.email)
+    console.log("this.flag")
+    let email = this.loginForm.value.email;
+    let pass = this.loginForm.value.password;
+    console.log(this.loginForm.value.password)
+    // this.auth.logIn(email,pass);
+  }
+
   signIn(){
-      // console.log(this.passForm.value.email)
+       console.log(this.passForm.value.password)
 
     let email = this.loginForm.value.email;
     let pass = this.loginForm.value.password;

@@ -1,17 +1,13 @@
-
-
-<div *ngIf="!flag; else pass" class="card1">
-    <!-- <h1 class="admin">Admin</h1> -->
-
-        <mat-card class="shipping-card mat-elevation-z24"  class="loginForm">
+    <mat-card class="shipping-card mat-elevation-z24"  *ngIf="!flag; else pass" class="loginForm" >
             <mat-card-header>
                 <mat-card-title>Admin Login</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-    <form [formGroup]="loginForm"  novalidate (ngSubmit)="signIn()">
+    <form [formGroup]="loginForm"  novalidate >
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+						<mat-label>Enter your email</mat-label>
                             <input matInput placeholder="Email" formControlName="email">
                             <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
                                 Email is <strong>required</strong>
@@ -26,7 +22,9 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
-                            <input matInput placeholder="Password" formControlName="password">
+						<mat-label>Enter your password</mat-label>
+                            <input matInput placeholder="Password" type="Password" formControlName="password">
+							
                             <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
                                 Password is <strong>required</strong>
                             </mat-error>
@@ -36,6 +34,9 @@
                             <mat-error *ngIf="loginForm.get('password').hasError('maxlength') && loginForm.get('password').touched">
                                 Password <strong>Maximum 12 characters</strong>
                             </mat-error>
+							 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
                         </mat-form-field>
                     </div>
                 </div>
@@ -43,24 +44,24 @@
                 </form>
             </mat-card-content>
             <mat-card-actions>
-                  <button mat-raised-button class="bt" type="submit"  class="md-button" [disabled]="!loginForm.valid">LOGIN</button>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="signIn()" [disabled]="!loginForm.valid">LOGIN</button>
                   <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="passFrm()">Forgot Password</button>
             </mat-card-actions>
         </mat-card>
 
-</div>
-<ng-template #pass class="card1">
-<div class="card1">
-  <div class="msg">
+<!--  <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="run()">try</button> -->
 
-      <p>Enter your email below to recieve your password</p>
-  </div>
+<ng-template #pass class="card1">
+
+      
+ 
       <mat-card class="shipping-card mat-elevation-z24" class="passForm">
           <mat-card-header>
             <h1>Forgot Password?</h1>
 
           </mat-card-header>
           <mat-card-content>
+		  <p>Enter your email below to recieve your password</p>
   <form [formGroup]="passForm"  novalidate (ngSubmit)="resetPassword()">
               <div class="row">
                   <div class="col">
@@ -83,5 +84,5 @@
                     <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="loginFrm()">login</button>
             </mat-card-actions>
             </mat-card>
-</div>
+
 </ng-template>

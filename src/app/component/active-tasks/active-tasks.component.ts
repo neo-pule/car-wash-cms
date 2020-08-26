@@ -22,6 +22,10 @@ dataSource : any;
 next(){
   this.route.navigate(['home/active-detailed-request']);
 }
+viewTask(){
+	console.log("assign Emp")
+	this.route.navigate(['home/active-detailed-request']);
+}
   ngOnInit(): void {
   }
 }

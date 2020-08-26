@@ -10,6 +10,7 @@ import { WelcomeComponent  } from './component/welcome/welcome.component';
 import { HomeComponent } from './component/home/home.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { AdminComponent } from './component/admin/admin.component';
 import { AddWorkerComponent } from './component/add-worker/add-worker.component';
 import { AddServiceComponent } from './component/add-service/add-service.component';
 import { RequestComponent } from './component/request/request.component';
@@ -22,14 +23,25 @@ import { TabsEmpComponent } from './component/tabs-emp/tabs-emp.component';
 import { ViewServiceComponent } from './component/view-service/view-service.component';
 import { ViewRequestComponent } from './component/view-request/view-request.component';
 import { ProfileUpdateComponent } from './component/profile-update/profile-update.component';
+import { PieChartComponent } from './widget/pie-chart/pie-chart.component';
+import { BarChartComponent } from './widget/bar-chart/bar-chart.component';
+import { LineChartComponent } from './widget/line-chart/line-chart.component';
+import { ChartComponent } from './component/chart/chart.component';
+
 import { AdminPasswUpdateComponent } from './component/admin-passw-update/admin-passw-update.component';
 //{path :'' , component : MenuComponent},
 
 const routes: Routes = [
+ { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     {path :'login' , component : LoginComponent},
+	{path :'welcome' , component : WelcomeComponent},
     {path:'home', component: HomeComponent ,children :[
-                                                                  {path :'welcome' , component : WelcomeComponent},
-                                                                  {path :'page' , component : SidenavComponent },
+                                                                  
+																   {path :'index' , component : ChartComponent },
+                                                                  {path :'admin' , component : AdminComponent },
+																  {path :'page' , component : SidenavComponent },
+																  {path :'pie' , component : PieChartComponent },
+																  {path :'bar' , component : BarChartComponent },
                                                                   {path :'admin-passw-update' , component : AdminPasswUpdateComponent },
                                                                   {path :'admin-profile' , component : ProfileComponent },
                                                                   {path :'admin-profile-update' , component : ProfileUpdateComponent },
@@ -42,7 +54,7 @@ const routes: Routes = [
                                                                   {path :'view-service' , component : ViewServiceComponent},
                                                                   {path :'transaction-history' , component : TransactionsComponent},
                                                                   {path :'profile-emp' , component : EmpProfileComponent},
-                                                                  {path :'profile-user' , component : UserProfileComponent},
+                                                                  {path :'user-profile' , component : UserProfileComponent},
                                                                   {path :'tabs' , component : TabsComponent},
                                                                   // {path :'login' , component : LoginComponent},
                                                                   {path :'tabs-request' , component : TabsRequestComponent},

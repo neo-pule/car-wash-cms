@@ -1,22 +1,22 @@
 <div class="card1">
 <mat-card class="example-card" tabindex="0" class="loginForm">
   <mat-card-header>
-    <img mat-card-sm-image src="../../assets/gallery-1490947843-img-4163.PNG" style="position:relative;height:100%;max-width:100%;">
+    <img mat-card-sm-image src="{{emp.photo}}" alt="../../assets/gallery-1490947843-img-4163.PNG" style="position:absolute;height:100%;max-width:100%;">
   </mat-card-header>
 
   <mat-card-content class="content">
 
  <mat-divider></mat-divider>
-    <h3>    emp id  : ...  </h3>
-    <mat-divider></mat-divider>
-        <p>Bob Neo</p>
-       <mat-divider></mat-divider>
-      <p>Bob@Neo</p>
+ <h3>    emp id  : {{emp.id}} </h3>
       <mat-divider></mat-divider>
-      <p>01123654789</p>
-     <mat-divider></mat-divider>
-      <p>address</p>
-     <mat-divider></mat-divider>
+          <p>{{emp.name}} </p>
+         <mat-divider></mat-divider>
+        <p>{{emp.email}}</p>
+        <mat-divider></mat-divider>
+        <p>{{emp.phone}}</p>
+       <mat-divider></mat-divider>
+        <p>address</p>
+       <mat-divider></mat-divider>
 
   </mat-card-content>
   <mat-card-actions >

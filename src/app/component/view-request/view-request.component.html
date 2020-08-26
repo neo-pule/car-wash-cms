@@ -1,1 +1,27 @@
-<p>view-request works!</p>
+ <mat-card class="shipping-card mat-elevation-z24"   class="loginForm" >
+            <mat-card-header>
+                <mat-card-title>Client Request</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+    <p>{{request.name}}</p>
+	<mat-divider></mat-divider>
+	<p>{{request.date}}</p>
+	<mat-divider></mat-divider>
+	<p>{{request.cost}}</p>
+	<mat-divider></mat-divider>
+            </mat-card-content>
+            <mat-card-actions>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="openD()">Accept</button>
+                  <button mat-raised-button class="bt" type="submit"  class="md-button" (click)="cancel()">Decline</button>
+            </mat-card-actions>
+        </mat-card>
+<br>
+		
+		<mat-list>
+	  <mat-list-item *ngFor="let user of data">
+      <mat-icon mat-list-icon>account_box</mat-icon>
+      <h4 mat-line>employee</h4>
+      <p mat-line class="demo-2">{{user.name}} </p>
+     
+   </mat-list-item>
+   </mat-list>

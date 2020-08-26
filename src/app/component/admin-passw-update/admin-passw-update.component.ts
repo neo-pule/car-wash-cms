@@ -15,9 +15,12 @@ export class AdminPasswUpdateComponent implements OnInit {
     confirmPass: [null, Validators.compose([ Validators.minLength(6), Validators.maxLength(12), Validators.required])],
 
   });
-constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<HomeComponent>) { }
+constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<AdminPasswUpdateComponent>) { }
 onNoClick(): void {
  this.dialogRef.close();
+}
+onSubmit(){
+  console.log("hi")
 }
   ngOnInit(): void {
   }

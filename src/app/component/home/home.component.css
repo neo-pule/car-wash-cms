@@ -41,3 +41,21 @@
 /* right:10px; */
   /* max-width: 90%; */
 }
+.card1{ 
+ position:relative;
+ 
+ /*display : flex;
+    flex-direction: column;
+	width : 45%;
+	height : 25%;
+	width : 25%; */
+}
+.card{ 
+ position:relative;
+ 
+ /*display : flex;
+    flex-direction: column;
+	width : 45%;
+	height : 25%;
+	width : 25%; */
+}
